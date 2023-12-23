@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="Add your name">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Guitar Pro</title>
+<link href="styles.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.typekit.net/hde2tfe.css">
+<link rel="stylesheet" href="https://use.typekit.net/hde2tfe.css">
+<script>
+			function validForm () {
+            /*first name, email, comments and phone */
+            var fname = document.form1.fname;
+            var email = document.form1.email;
+            var emailRegex = /^([A-Z0-9._%+-]+)\@([A-Z0-9.-]+)\.([A-Z]{2,4})$/i;
+            var comments = document.form1.comments;
+            var phone1 = document.form1.phone1;
+            var phone2 = document.form1.phone2;
+            var phone3 = document.form1.phone3;
+            /* collecting the error spans for later use */
+            var fnErr = document.getElementById('fnErr');
+            var lnErr = document.getElementById('lnErr');
+            var emErr = document.getElementById('emErr');
+            var phErr = document.getElementById('phErr');
+            var cmErr = document.getElementById('cmErr');
+
+            /* first name cannot be blank */
+            if(fname.value=="") {
+                fnErr.innerHTML = "We need at least your first name, please.";
+                fname.focus();
+                return false;
+            } else {
+                fnErr.innerHTML = "";
+            }
+
+            // email cannot be blank //
+            if(email.value==="") {
+                emErr.innerHTML = "We need an email address, please.";
+                email.focus();
+                return false;
+            } else if (!emailRegex.test(email.value)) {
+
+            emErr.innerHTML = "Enter a valid email address, please.";
+            email.focus();
+            return false;
+            } else {
+                emErr.innerHTML = "";
+            }
+
+            if(isNaN(phone1.value) || isNaN(phone2.value) || isNaN(phone3.value)) {
+                phErr.innerHTML = "Phone number should be numbers only.";
+                phone1.select();
+                return false;
+            } else {
+                phErr.innerHTML = "";
+            }
+
+            if(phone1.value == "") {
+                phErr.innerHTML = "Please enter a valid phone number.";
+                phone1.focus();
+                return false;
+            } else {
+                phErr.innerHTML = "";
+            }
+
+            if(phone2.value == "") {
+                phErr.innerHTML = "Please enter a valid phone number.";
+                phone1.focus();
+                return false;
+            } else {
+                phErr.innerHTML = "";
+            }
+
+            if(phone3.value == "") {
+                phErr.innerHTML = "Please enter a valid phone number.";
+                phone1.focus();
+                return false;
+            } else {
+                phErr.innerHTML = "";
+            }
+
+            if(comments.value == "") {
+                cmErr.innerHTML = "Please include a comment or 'none' in the comment box.";
+                comments.focus();
+                return false;
+            } else {
+                cmErr.innerHTML = "";
+            }
+
+            var notices = document.form1.notices;
+            var selected;
+            for(var i=0;i<notices.length;i++) {
+                if(notices[i].checked) {
+                    selected = notices[i].value;
+
+                }
+            }
+            /* set up a message for a advert recipient */
+            var msg = "Thank you, <b>"+fname.value
+                +"!</b> Your message has been received and one of our representatives will reply to <a href='"+email.value+"'>"+email.value+"</a> within a day or two. Relax, and have a taco!";
+                if(selected != undefined) {
+                    document.getElementById('notePref').innerHTML = "";
+                    if (selected == "yes") { // here's where we test the contents of "selected"
+                        document.getElementById('fnlMsg').innerHTML = msg;
+                } else {
+                    document.getElementById('fnlMsg').innerHTML = "<strong>"+fname.value+"</strong>, thank you for your feedback!";
+                }
+                var contactForm = document.getElementById('contactForm').setAttribute('class','hide');
+                var loseSep = document.getElementsByClassName('spec');
+                loseSep[0].setAttribute('class', 'hide');
+                } else {
+                    document.getElementById('notePref').innerHTML = "Please make a selection:";
+                }
+			}
+
+	</script>
+</head>
+<body>
+<header> <img src="images/Ackerlyj_Project1Logo.png" alt="Stringless Guitar">
+  <h1>Air Guitar Pro</h1>
+  <nav> <a href="#" id="menu-icon"></a>
+    <ul>
+      <li><a href="index.html" class="current">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="testimonial.html">Testimonial</a></li>
+    </ul>
+  </nav>
+</header>
+<article class="main">
+  <section class="section_1">
+    <p>"Discover our vibrant support page, where you can seamlessly integrate into a thriving community of Air Guitar users, featuring engineers, instructors, seasoned musicians, and avid listeners of our innovative product. It's a hub where knowledge meets passion, creating a space for collaboration and learning.
+      <div class="mobile">
+      We understand that questions can arise, so we've curated a comprehensive FAQs page, which serves as a repository of solutions to the most common issues you might encounter. Chances are, someone has encountered the same inquiry, whether it's related to software installation or battery replacement. We kindly ask you to explore this invaluable resource and search for similar questions that may have already been answered.
+     
+      However, if your query remains unaddressed or you seek a more personalized experience, don't hesitate to ask new questions. Whether you're interested in lessons with our certified Air Guitar Player instructors or wish to dive into the technical intricacies of our guitar's makeup with our engineers, our support page is here to cater to your unique needs. Join us on this exciting journey, where curiosity is met with knowledge, and every question is an opportunity to learn."</p>
+	   </div>
+    <img src="images/D/D480.jpg"
+		   srcset="images/D/D960.jpg 960w,
+				   images/D/D1440.jpg 1440w,
+				   images/D/D1920.jpg 1920w"
+		   sizes="(max-width: 960w) 960w, (max-width: 1440w) 1440w, (max-width: 1920w) 1920w"
+		   alt="Guitar Sun"
+		   width="100%" height="auto">
+    <p>"As part of our commitment to providing you with comprehensive resources, we've introduced a dynamic video service on Twitch, where you can explore an array of instructional videos on Air Guitar techniques and various related topics. You can find these videos on our dedicated Twitch channel, AIrGuitarPro.tv.
+      
+      Front and center on this channel, you'll find Ariel, our star instructor, who will personally guide you through the many facets of playing and tuning the Air Guitar. Ariel's expertise knows no bounds, and she's here to ensure that you make the most of your musical journey.
+      
+      One fascinating aspect of the Air Guitar is its ability to adapt to your unique preferences. The strings can be effortlessly adjusted to any tuning you desire, offering an unparalleled level of flexibility. Ariel is your go-to source for insights on these customizations and a wealth of other valuable information. Join us on AIrGuitarPro.tv and let Ariel be your trusted companion on the path to Air Guitar mastery."</p>
+  </section>
+  <section class="section_2">
+    <div class="landing"> <img srcset="images/pexels-wendy-wei-1916824_960.jpg 960w,
+						 images/pexels-wendy-wei-1916824_1440.jpg 1440w,
+						 images/pexels-wendy-wei-1916824_1920.jpg 1920w"
+				 sizes="(max-width: 960w) 30vw, (max-width: 1440w) 45vw, (max-width: 1920w) 60vw"
+				 src="images/pexels-wendy-wei-1916824_480.jpg"
+				 alt="back of man playing guitar on stage"
+				 width="100%" height="auto"></div>
+    <div><img srcset="images/rusian-zzaebok/pexels-ruslan-zzaebok-1277110_960.jpg 960w,
+		  			images/rusian-zzaebok/pexels-ruslan-zzaebok-1277110_1440.jpg 1440w,
+		  			images/rusian-zzaebok/pexels-ruslan-zzaebok-1277110_1920.jpg 1920w"
+			  sizes="(max-width: 960w) 30vw, (max-width: 1440w) 45vw, (max-width: 1920w) 60vw"
+			  src="images/rusian-zzaebok/pexels-ruslan-zzaebok-1277110_480.jpg"
+			  alt="Girl on traintracks with guitar"
+	  		  width="100%" height="auto"></div>
+    <div><img srcset="images/keith-wako/pexels-keith-wako-89909_960.jpg 960w,
+		  			  images/keith-wako/pexels-keith-wako-89909_1440.jpg 1440w,
+		  			  images/keith-wako/pexels-keith-wako-89909_1920.jpg 1920w"
+				sizes="(max-width: 960w) 30vw, (max-width: 1440w) 45vw, (max-width: 1920w) 60vw"
+				src="images/keith-wako/pexels-keith-wako-89909_480.jpg"
+				width="100%" height="auto" alt="Guitar in the sun"></div>
+  </section>
+</article>
+<h2>Air Guitar Products</h2>
+<section class="section_3">
+  <p>"For all your technical inquiries, whether they pertain to our Air Guitar Products, their intricate manufacturing process, or any concerns with our website, we're just a phone call away at 1-800-5439. Once you dial this number, you'll be greeted by a machine that will seamlessly direct you to the appropriate department, ensuring that you receive the precise assistance you need.
+    
+    Our dedicated agents are at the ready to assist you, addressing your queries and resolving your concerns, whether it's related to making a purchase or simply making an inquiry. We've got you covered, and your satisfaction is our top priority. Don't hesitate to reach out; we're here to make your experience as smooth and enjoyable as possible."</p>
+  <article id="contactForm">
+    <h2>Contact Form</h2>
+    <p class="lead">Please fill in the information below:</p>
+    <form method="post" action="" name="form1">
+      <p>Your Name: <br>
+        <input type="text" name="fname" placeholder="first name">
+        <input type="text" name="lname" placeholder="last name">
+        <br>
+        <span class="err" id="fnErr"></span></p>
+      <p>Email: <br>
+        <input type="text" name="email" placeholder="yourname@email.com">
+        <br>
+        <span class="err" id="emErr"></span></p>
+      <p>Phone: <br>
+        <input type="tel" name="phone1" placeholder="xxx" max length="3">
+        <input type="tel" name="phone2" placeholder="xxx" max length="3" class="shortmargin">
+        <input type="tel" name="phone3" placeholder="xxxx" max length="4" class="shortmargin">
+        <br>
+        <span class="err" id="phErr"></span></p>
+      <p>Comments: <br>
+        <textarea name="comments" placeholder="add your comments" class="adj"></textarea>
+        <br>
+        <span class="err" id="cmErr"></span></p>
+      <p>Would you like to receive notifications via email?<br>
+        <span class="err" id="notePref"></span>
+        <input type="radio" name="notices" value="yes">
+        : Sure
+        <input type="radio" name="notices" value="maybe">
+        : Maybe
+        <input type="radio" name="notices" value="no">
+        : No Thanks </p>
+      <p>
+        <input type="button" value="Send Information" onclick="validForm()">
+      </p>
+    </form>
+  </article>
+  <img src="images/murilo-soares/pexels-murilo-soares-996891_480.jpg"
+		 srcset="images/murilo-soares/pexels-murilo-soares-996891_960.jpg 960w,
+				 images/murilo-soares/pexels-murilo-soares-996891_1440.jpg 1440w,
+				 images/murilo-soares/pexels-murilo-soares-996891_1920.jpg 1920w"
+		 sizes="(max-width: 960w) 960w, (max-width: 1440w) 1440w, (max-width: 1920w) 1920w"
+		 alt="#" width="100%" height="auto">
+  <p>"As a dedicated Air Guitar user and instructor, my passion lies in imparting the fundamental principles of Air Guitar mastery to my students. I'm here to guide you through the intricacies of playing the instrument, shedding light on the techniques and insights that will elevate your performance.
+    
+    In our lessons, we'll explore the unique nuances of Air Guitar, helping you understand the intricacies of playing without physical strings and what to expect as you dive into this innovative realm. I'm here to share not only the intuitive aspects of Air Guitar but also the hidden gems that may not be immediately apparent. The transition from playing on a fretboard with strings to the enchanting world of Air Guitar may present a learning curve, but with dedication and guidance, you'll soon discover the limitless creative potential that awaits you. Let's embark on this musical journey together."</p>
+</section>
+</body>
+<footer><small>© 2023 Joshua Ackerly @<a href="https://www.graveyardjokes.com" style="color: orange">GraveYardJokes</a></small></footer>
+</html>
